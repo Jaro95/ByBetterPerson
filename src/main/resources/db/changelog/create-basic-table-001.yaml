@@ -45,38 +45,3 @@ databaseChangeLog:
                       foreignKey: fk_organization_address
                       referencedTableName: address
                       referencedColumnName: id
-
-        - insert:
-            tableName: address
-            columns:
-              - column:
-                  name: id
-                  value: 1
-              - column:
-                  name: city
-                  value: "Warszawa"
-              - column:
-                  name: street
-                  value: "Marszalkowska"
-              - column:
-                  name: streetNumber
-                  value: 10
-              - column:
-                  name: number
-                  value: 1
-              - column:
-                  name: postalCode
-                  value: "00-123"
-
-        - insert:
-            tableName: organization
-            columns:
-              - column:
-                  name: id
-                  value: 1
-              - column:
-                  name: description
-                  value: "Opis ogranizacji"
-              - column:
-                  name: address_id
-                  value: 1

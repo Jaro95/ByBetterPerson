@@ -1,3 +1,7 @@
 databaseChangeLog:
   - include:
-      file: db/changelog/changeset-001.yaml
+      file:
+        - db/changelog/create-basic-table-001.yaml
+  - include:
+      file:
+        - db/changelog/insert-to-basic-table-001.yaml

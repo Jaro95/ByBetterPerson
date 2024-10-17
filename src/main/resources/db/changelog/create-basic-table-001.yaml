@@ -8,7 +8,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  type: int
+                  type: bigserial
                   constraints:
                     primaryKey: true
                     nullable: false
@@ -19,13 +19,13 @@ databaseChangeLog:
                   name: street
                   type: varchar(255)
               - column:
-                  name: streetNumber
+                  name: street_number
                   type: int
               - column:
                   name: number
                   type: int
               - column:
-                  name: postalCode
+                  name: postal_code
                   type: varchar(6)
 
         - createTable:
@@ -33,13 +33,19 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  type: int
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
               - column:
                   name: description
                   type: varchar(255)
               - column:
+                  name: name
+                  type: varchar(255)
+              - column:
                   name: address_id
-                  type: int
+                  type: bigint
                   constraints:
                     foreignKey:
                       foreignKey: fk_organization_address

@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import pl.jaroslaw.bybetterperson.api.address.command.CreateAddressCommand;
 import pl.jaroslaw.bybetterperson.api.address.command.UpdateAddressCommand;
-import pl.jaroslaw.bybetterperson.dto.address.AddressDto;
+import pl.jaroslaw.bybetterperson.api.address.dto.AddressDto;
 
 @RestController
 @RequestMapping("/api/address")

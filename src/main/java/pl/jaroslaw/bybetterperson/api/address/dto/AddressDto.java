@@ -1,4 +1,4 @@
-package pl.jaroslaw.bybetterperson.dto.address;
+package pl.jaroslaw.bybetterperson.api.address.dto;
 
 public record AddressDto(
         Long id,
@@ -6,5 +6,6 @@ public record AddressDto(
         String street,
         Integer streetNumber,
         Integer number,
-        String postalCode) {
+        String postalCode
+) {
 }

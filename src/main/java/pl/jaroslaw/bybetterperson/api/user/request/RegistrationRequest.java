@@ -1,31 +1,27 @@
 package pl.jaroslaw.bybetterperson.api.user.request;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
 @Builder
-public class RegistrationRequest {
+public record RegistrationRequest (
     @NotBlank
     @Size(max = 30)
-    private String name;
+    String name,
     @NotBlank
     @Size(max = 50)
-    private String email;
+    @Email
+    String email,
     @NotBlank
     @Size(min = 8)
     @Pattern(
             regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!*@#$%^&+=])(?=\\S+$).{8,}$",
             message = "Hasło musi zawierać wielkie litery, małe litery, cyfry i znaki specjalne"
     )
-    private String password;
+    String password,
     @NotBlank
-    private String repeatPassword;
-}
+    String repeatPassword
+) {}

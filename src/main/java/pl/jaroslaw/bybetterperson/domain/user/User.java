@@ -25,6 +25,9 @@ public class User {
     @Size(max = 30)
     private String name;
     @NotBlank
+    @Size
+    private String lastName;
+    @NotBlank
     @Size(max = 50)
     private String email;
     @NotBlank

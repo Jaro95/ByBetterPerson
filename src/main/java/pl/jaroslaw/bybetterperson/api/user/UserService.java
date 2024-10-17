@@ -69,24 +69,24 @@ public class UserService {
     }
 
     public RegistrationResponse registrationUser(RegistrationRequest registrationRequest) {
-        if (!registrationRequest.getPassword().equals(registrationRequest.getRepeatPassword())) {
+        if (!registrationRequest.password().equals(registrationRequest.repeatPassword())) {
             return new RegistrationResponse(false, "Passwords are not the same", registrationRequest);
         }
-        if (userRepository.findByEmail(registrationRequest.getEmail()).isPresent()) {
+        if (userRepository.findByEmail(registrationRequest.email()).isPresent()) {
             return new RegistrationResponse(false, "Email is already taken", registrationRequest);
         }
         Role userRole = roleRepository.findByName("ROLE_USER");
         userRepository.save(User.builder()
-                .name(registrationRequest.getName())
-                .email(registrationRequest.getEmail())
+                .name(registrationRequest.name())
+                .email(registrationRequest.email())
                 .roles(new HashSet<>(Collections.singletonList(userRole)))
-                .password(passwordEncoder.encode(registrationRequest.getPassword()))
+                .password(passwordEncoder.encode(registrationRequest.password()))
                 .createdAccount(LocalDateTime.now())
                 .enabled(false)
                 .token(UUID.randomUUID().toString())
                 .build());
-        log.info("Added new user:\nEmail:{}\nName:{}", registrationRequest.getEmail(),
-                registrationRequest.getName());
+        log.info("Added new user:\nEmail:{}\nName:{}", registrationRequest.email(),
+                registrationRequest.name());
         return new RegistrationResponse(true, "Registration successful", registrationRequest);
     }
 

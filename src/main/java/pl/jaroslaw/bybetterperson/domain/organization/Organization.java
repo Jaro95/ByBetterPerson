@@ -22,13 +22,13 @@ public class Organization {
     @JoinColumn(name = "address_id")
     private Address address;
 
-    private Organization(String description, String name) {
+    private Organization(String description, String name, Address address) {
         this.description = new Description(description, name);
-        this.address = null;
+        this.address = address;
     }
 
-    public static Organization create(String description, String name) {
-        return new Organization(description, name);
+    public static Organization create(String description, String name, Address address) {
+        return new Organization(description, name, address);
     }
 
     public void addAddress(Address address) {

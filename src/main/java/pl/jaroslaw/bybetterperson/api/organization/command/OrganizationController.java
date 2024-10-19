@@ -1,11 +1,10 @@
-package pl.jaroslaw.bybetterperson.api.organization;
+package pl.jaroslaw.bybetterperson.api.organization.command;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import pl.jaroslaw.bybetterperson.api.organization.command.CreateOrganizationCommand;
-import pl.jaroslaw.bybetterperson.api.organization.command.UpdateOrganizationAddressCommand;
-import pl.jaroslaw.bybetterperson.api.organization.command.UpdateOrganizationCommand;
-import pl.jaroslaw.bybetterperson.api.organization.dto.OrganizationDto;
+import pl.jaroslaw.bybetterperson.api.organization.command.dto.CreateOrganizationCommand;
+import pl.jaroslaw.bybetterperson.api.organization.command.dto.UpdateOrganizationAddressCommand;
+import pl.jaroslaw.bybetterperson.api.organization.command.dto.UpdateOrganizationCommand;
 
 @RestController
 @RequestMapping("/api/organization")
@@ -22,13 +21,13 @@ class OrganizationController {
     }
 
     @PutMapping("/{organizationId}/update")
-    OrganizationDto updateOrganizationData(@PathVariable Long organizationId,
+    Long updateOrganizationData(@PathVariable Long organizationId,
                                            @RequestBody UpdateOrganizationCommand cmd) {
         return updateOrganizationDataHandler.handle(organizationId, cmd);
     }
 
     @PutMapping("/{organizationId}/update/address")
-    OrganizationDto updateOrganizationAddress(@PathVariable Long organizationId,
+    Long updateOrganizationAddress(@PathVariable Long organizationId,
                                               @RequestBody UpdateOrganizationAddressCommand cmd) {
         return updateOrganizationAddressHandler.handle(organizationId, cmd);
     }

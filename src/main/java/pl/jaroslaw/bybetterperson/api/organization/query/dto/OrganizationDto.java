@@ -1,4 +1,4 @@
-package pl.jaroslaw.bybetterperson.api.organization.dto;
+package pl.jaroslaw.bybetterperson.api.organization.query.dto;
 
 import pl.jaroslaw.bybetterperson.api.address.dto.AddressDto;
 

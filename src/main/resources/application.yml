@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    username: "myuser"
+    password: "secret"
+    url: "jdbc:postgresql://localhost:5432/mydatabase"
+    driver-class-name: "org.postgresql.Driver"
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+  liquibase:
+    change-log: db/changelog/db.changelog-master.yaml
+
+springdoc:
+  api-docs:
+    path: "/v3/api-docs"
+  swagger-ui:
+    operations-sorter: "method"
+    doc-expansion: "none"
+    tags-sorter: "alfa"
+    disable-swagger-default-url: true
+    path: "/swagger-ui"

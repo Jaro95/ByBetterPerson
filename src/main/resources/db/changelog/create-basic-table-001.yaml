@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 1
+      id: 2
       author: matiu
       changes:
         - createTable:
@@ -51,3 +51,40 @@ databaseChangeLog:
                       foreignKey: fk_organization_address
                       referencedTableName: address
                       referencedColumnName: id
+
+        - createTable:
+            tableName: event
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: address_id
+                  type: bigint
+                  constraints:
+                    foreignKey:
+                      foreignKey: fk_organization_address
+                      referencedTableName: address
+                      referencedColumnName: id
+              - column:
+                  name: date
+                  type: varchar(255)
+              - column:
+                  name: status
+                  type: varchar(255)
+              - column:
+                  name: description
+                  type: varchar(255)
+              - column:
+                  name: terms
+                  type: varchar(255)
+              - column:
+                  name: organization_id
+                  type: bigserial
+

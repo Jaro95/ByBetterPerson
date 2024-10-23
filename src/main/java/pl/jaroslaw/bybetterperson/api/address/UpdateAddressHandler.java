@@ -3,9 +3,9 @@ package pl.jaroslaw.bybetterperson.api.address;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.jaroslaw.bybetterperson.api.address.command.UpdateAddressCommand;
+import pl.jaroslaw.bybetterperson.api.address.dto.AddressDto;
 import pl.jaroslaw.bybetterperson.domain.address.Address;
 import pl.jaroslaw.bybetterperson.domain.address.AddressRepository;
-import pl.jaroslaw.bybetterperson.dto.address.AddressDto;
 
 @Service
 @AllArgsConstructor
@@ -29,7 +29,7 @@ class UpdateAddressHandler {
                 changedAddress.getStreet(),
                 changedAddress.getStreetNumber(),
                 changedAddress.getNumber(),
-                changedAddress.getPostalCode().getValue()
+                changedAddress.getPostalCode()
         );
     }
 }

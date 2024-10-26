@@ -61,7 +61,7 @@ databaseChangeLog:
                   value: "27-10-2024"
               - column:
                   name: status
-                  value: "InProgress"
+                  value: "INPROGRESS"
               - column:
                   name: description
                   value: "Potrzebna pilna pomoc z powodu ostatniej klęski żywiołowej"

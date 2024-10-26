@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import pl.jaroslaw.bybetterperson.domain.address.Address;
+import pl.jaroslaw.bybetterperson.domain.organization.Organization;
 
 
 import java.util.Date;
@@ -25,57 +26,67 @@ public class Event {
     @JoinColumn(name = "address_id")
     private Address address;
 
-    private String date;
+    private String eventDateStart;
 
-    private String status;
+    private String eventDateEnd;
+
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
     private String description;
     //users
     private String terms;
 
-    private Long organizationId;
+    @ManyToOne
+    @JoinColumn(name = "organization_id", nullable = false)
+    private Organization organization;
 
     private Event(String name,
                   Address address,
-                  String date,
-                  String status,
+                  String eventDateStart,
+                  String eventDateEnd,
+                  Status status,
                   String description,
                   String terms,
-                  Long organizationId) {
+                  Organization organization) {
         this.name = name;
         this.address = address;
-        this.date = date;
+        this.eventDateStart = eventDateStart;
+        this.eventDateEnd = eventDateEnd;
         this.status = status;
         this.description = description;
         this.terms = terms;
-        this.organizationId = organizationId;
+        this.organization = organization;
     }
 
     public static Event create(String name,
                                Address address,
-                               String date,
-                               String status,
+                               String eventDateStart,
+                               String eventDateEnd,
+                               Status status,
                                String description,
                                String terms,
-                               Long organizationId) {
+                               Organization organization) {
         return new Event(
                 name,
                 address,
-                new Date().toString(),//odpowiedni format
+                eventDateStart,
+                eventDateEnd,//odpowiedni format
                 status,//enum zrobic
                 description,
                 terms,
-                organizationId
+                organization
         );
     }
 
-    public Event updateData(String name, String date, String status, String description, String terms, Long organizationId) {
+    public Event updateData(String name, String eventStartDate, String eventDateEnd, Status status, String description, String terms, Organization organization) {
         this.name = name;
-        this.date = date;
+        this.eventDateStart = eventStartDate;
+        this.eventDateEnd = eventDateEnd;
         this.status = status;
         this.description = description;
         this.terms = terms;
-        this.organizationId = organizationId;
+        this.organization = organization;
 
         return this;
     }

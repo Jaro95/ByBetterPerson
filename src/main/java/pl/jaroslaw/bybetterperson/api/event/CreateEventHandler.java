@@ -26,17 +26,17 @@ public class CreateEventHandler {
                 cmd.addressDto().streetNumber(),
                 cmd.addressDto().number(),
                 cmd.addressDto().postalCode()
-
         );
 
         Event event = Event.create(
                 cmd.name(),
                 address,
-                new Date().toString(),//odpowiedni format
-                cmd.status(),//enum zrobic
+                cmd.eventDateStart(),//odpowiedni format
+                cmd.eventDateEnd(),//enum zrobic
+                cmd.status(),
                 cmd.description(),
                 cmd.terms(),
-                cmd.organizationId()
+                cmd.organization()
         );
         Event savedEvent = eventRepository.save(event);
 

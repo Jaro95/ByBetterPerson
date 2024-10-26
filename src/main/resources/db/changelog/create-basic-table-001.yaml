@@ -69,11 +69,14 @@ databaseChangeLog:
                   type: bigint
                   constraints:
                     foreignKey:
-                      foreignKey: fk_organization_address
+                      foreignKey: fk_event_address
                       referencedTableName: address
                       referencedColumnName: id
               - column:
-                  name: date
+                  name: event_date_start
+                  type: varchar(255)
+              - column:
+                  name: event_date_end
                   type: varchar(255)
               - column:
                   name: status
@@ -87,4 +90,9 @@ databaseChangeLog:
               - column:
                   name: organization_id
                   type: bigserial
+                  constraints:
+                    foreignKey:
+                      foreignKey: fk_organization_id
+                      referencedTableName: organization
+                      referencesColumnName: id
 

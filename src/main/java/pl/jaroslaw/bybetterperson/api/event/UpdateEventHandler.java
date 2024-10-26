@@ -25,11 +25,12 @@ public class UpdateEventHandler {
 
         Event updatedEvent = event.updateData(
                 cmd.name(),
-                new Date().toString(),//odpowiedni format
-                cmd.status(),//enum zrobic
+                cmd.evenDateStart(),//odpowiedni format
+                cmd.eventDateEnd(),
+                cmd.status(),
                 cmd.description(),
                 cmd.terms(),
-                cmd.organizationId()
+                cmd.organization()
         );
         return updatedEvent.getId();
     }

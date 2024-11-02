@@ -16,15 +16,11 @@ import pl.jaroslaw.bybetterperson.domain.organization.OrganizationRepository;
 public class UpdateEventHandler {
 
     private final EventRepository eventRepository;
-    private final OrganizationRepository organizationRepository;
 
     @Transactional
     public Long handle(Long eventId, UpdateEventCommand cmd) {
         Event event = eventRepository.findById(eventId)
                 .orElseThrow(() -> new EntityNotFoundException("Event not found for ID: " + eventId));
-
-        Organization organization = organizationRepository.findById(cmd.organizationId())
-                .orElseThrow(() -> new EntityNotFoundException("Organization not found for ID: " + cmd.organizationId()));
 
         Event updatedEvent = event.updateData(
                 cmd.name(),
@@ -32,8 +28,7 @@ public class UpdateEventHandler {
                 cmd.eventDateEnd(),
                 cmd.status(),
                 cmd.description(),
-                cmd.terms(),
-                organization
+                cmd.terms()
         );
         return updatedEvent.getId();
     }

@@ -9,6 +9,7 @@ import pl.jaroslaw.bybetterperson.domain.address.Address;
 import pl.jaroslaw.bybetterperson.domain.address.AddressRepository;
 import pl.jaroslaw.bybetterperson.domain.event.Event;
 import pl.jaroslaw.bybetterperson.domain.event.EventRepository;
+import pl.jaroslaw.bybetterperson.domain.event.Status;
 import pl.jaroslaw.bybetterperson.domain.organization.Organization;
 import pl.jaroslaw.bybetterperson.domain.organization.OrganizationRepository;
 
@@ -31,13 +32,14 @@ public class CreateEventHandler {
         Event event = Event.create(
                 cmd.name(),
                 address,
-                cmd.eventDateStart(),//odpowiedni format
+                cmd.eventDateStart(),
                 cmd.eventDateEnd(),
-                cmd.status(),
+                Status.INPROGRESS,
                 cmd.description(),
                 cmd.terms(),
                 organization
         );
+
         Event savedEvent = eventRepository.save(event);
 
         return savedEvent.getId();

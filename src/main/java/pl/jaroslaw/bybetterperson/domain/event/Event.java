@@ -76,14 +76,13 @@ public class Event {
         );
     }
 
-    public Event updateData(String name, String eventDateStart, String eventDateEnd, Status status, String description, String terms, Organization organization) {
+    public Event updateData(String name, String eventDateStart, String eventDateEnd, Status status, String description, String terms) {
         this.name = name;
         this.eventDateStart = eventDateStart;
         this.eventDateEnd = eventDateEnd;
         this.status = status;
         this.description = description;
         this.terms = terms;
-        this.organization = organization;
 
         return this;
     }

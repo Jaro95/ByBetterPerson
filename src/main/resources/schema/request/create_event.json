@@ -1,0 +1,15 @@
+{
+  "name": "przykladowy event",
+  "address": {
+    "city": "miasto",
+    "street": "ulica",
+    "streetNumber": 10,
+    "number": 100,
+    "postalCode": "11-111"
+  },
+  "eventDateStart": "26-10-2024",
+  "eventDateEnd": "26-10-2024",
+  "description": "przykladowy opis",
+  "terms": "przykladowy term",
+  "organizationId": 100000
+}

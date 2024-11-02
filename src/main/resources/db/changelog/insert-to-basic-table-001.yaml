@@ -40,3 +40,35 @@ databaseChangeLog:
               - column:
                   name: address_id
                   value: "100000"
+
+        - insert:
+            tableName: event
+            columns:
+              - column:
+                  name: id
+                  value: "100000"
+              - column:
+                  name: name
+                  value: "Pomoc przy ..."
+              - column:
+                  name: address_id
+                  value: 100000
+              - column:
+                  name: event_date_start
+                  value: "26-10-2024"
+              - column:
+                  name: event_date_end
+                  value: "27-10-2024"
+              - column:
+                  name: status
+                  value: "INPROGRESS"
+              - column:
+                  name: description
+                  value: "Potrzebna pilna pomoc z powodu ostatniej klęski żywiołowej"
+              - column:
+                  name: terms
+                  value: "terms 1"
+              - column:
+                  name: organization_id
+                  value: "100000"
+

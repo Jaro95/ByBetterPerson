@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import pl.jaroslaw.bybetterperson.domain.address.Address;
+import pl.jaroslaw.bybetterperson.domain.event.Event;
+
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,6 +24,8 @@ public class Organization {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private Address address;
+    @OneToMany(mappedBy = "organization")
+    private Set<Event> events;
 
     private Organization(String description, String name, Address address) {
         this.description = new Description(description, name);
